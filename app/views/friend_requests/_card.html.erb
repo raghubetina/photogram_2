@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Sender</dt>
-      <!-- Display sender_id start -->
       <dd>
         <% if @friend_request.sender.present? %>
           <%= link_to friend_request.sender, friend_request.sender %>
         <% end %>
       </dd>
-      <!-- Display sender_id end -->
 
       <dt>Recipient</dt>
-      <!-- Display recipient_id start -->
       <dd>
         <% if @friend_request.recipient.present? %>
           <%= link_to friend_request.recipient, friend_request.recipient %>
         <% end %>
       </dd>
-      <!-- Display recipient_id end -->
 
       <dt>Status</dt>
-      <!-- Display status start -->
       <dd><%= friend_request.status %></dd>
-      <!-- Display status end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back friend_request, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link friend_request start -->
       <div class="col">
         <% if current_user == @friend_request.sender %>
           <%= link_to edit_friend_request_url(friend_request), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link friend_request end -->
 
-      <!-- Delete link friend_request start -->
       <div class="col">
         <% if current_user == @friend_request.sender %>
           <%= link_to friend_request, method: :delete, data: { confirm: "Do you really want to delete this friend_request?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link friend_request end -->
     </div>
   </div>
 
