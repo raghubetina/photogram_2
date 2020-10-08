@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= vote.user_id %></dd>
+      <dd>
+        <% if @vote.user.present? %>
+          <%= link_to vote.user, vote.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Photo</dt>
       <!-- Display photo_id start -->
-      <dd><%= vote.photo_id %></dd>
+      <dd>
+        <% if @vote.photo.present? %>
+          <%= link_to vote.photo, vote.photo %>
+        <% end %>
+      </dd>
       <!-- Display photo_id end -->
 
     </dl>
