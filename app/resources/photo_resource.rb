@@ -9,6 +9,9 @@ class PhotoResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :likes,
+             resource: VoteResource
+
   belongs_to :owner,
              resource: UserResource
 
