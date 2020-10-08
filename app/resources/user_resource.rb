@@ -31,6 +31,9 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :liked_photos,
+               resource: PhotoResource
+
   many_to_many :commented_photos,
                resource: PhotoResource
 
