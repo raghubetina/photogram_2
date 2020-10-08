@@ -5,7 +5,8 @@ class FriendRequestsController < ApplicationController
 
   # GET /friend_requests
   def index
-    @friend_requests = current_user.sent_friend_requests.page(params[:page]).per(10)
+    @q = current_user.sent_friend_requests.ransack(params[:q])
+    @friend_requests = @q.result(:distinct => true).includes(:sender, :recipient).page(params[:page]).per(10)
   end
 
   # GET /friend_requests/1
